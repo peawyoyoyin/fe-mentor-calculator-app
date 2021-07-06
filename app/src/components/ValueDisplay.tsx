@@ -1,13 +1,15 @@
 import styles from '../styles/ValueDisplay.module.scss';
 
-export function ValueDisplay() {
-  const value = 36689.12;
+interface IValueDisplayProps {
+	displayResult: string
+}
 
-  return (
-    <div className={styles.container}>
-      <span className={styles.value}>
-        {new Intl.NumberFormat('en-US').format(value)}
-      </span>
-    </div>
-  )
+export function ValueDisplay(props: IValueDisplayProps) {
+	return (
+		<div className={styles.container}>
+			<span className={styles.value}>
+				{new Intl.NumberFormat('en-US').format(parseFloat(props.displayResult))}
+			</span>
+		</div>
+	)
 }
