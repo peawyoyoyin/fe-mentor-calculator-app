@@ -1,6 +1,6 @@
 .container {
   padding: 16px;
-  background-color: blueviolet;
+  background-color: var(--keys-bg);
   border-radius: 8px;
 }
 
@@ -20,15 +20,20 @@
     padding: 16px;
     border: 0;
 
-    background-color: wheat;
-    box-shadow: inset black 0px -4px;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    box-shadow: inset var(--btn-shadow) 0px -4px;
 
     &.dark {
-      background-color: darkblue;
+      background-color: var(--btn-dark-bg);
+      box-shadow: inset var(--btn-dark-shadow) 0px -4px;
+      color: var(--btn-dark-text);
     }
 
     &.submit {
-      background-color: darkorange;
+      background-color: var(--btn-submit-bg);
+      box-shadow: inset var(--btn-submit-shadow) 0px -4px;
+      color: var(--btn-submit-text);
     }
   }
 }

@@ -6,8 +6,5 @@
 
 .logo {
   font-weight: 700;
-}
-
-.logo::before {
-  content: ''
+  color: var(--navbar-text);
 }

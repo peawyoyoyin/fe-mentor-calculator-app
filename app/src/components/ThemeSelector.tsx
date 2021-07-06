@@ -1,9 +1,8 @@
-import { useState } from "react"
-
 import styles from '../styles/ThemeSelector.module.scss';
+import { useTheme } from "./themes/ThemeProvider";
 
 export function ThemeSelector() {
-  const [theme, setTheme] = useState(0);
+  const { theme, cycleTheme } = useTheme();
 
   return (
     <div className={styles.container}>
@@ -16,7 +15,7 @@ export function ThemeSelector() {
           <label>2</label>
           <label>3</label>
         </div>
-        <div className={styles.switch} onClick={() => setTheme(theme => (theme + 1) % 3)}>
+        <div className={styles.switch} onClick={cycleTheme}>
           <div className={`${styles.dial} ${styles[`dial-${theme}`]}`}></div>
         </div>
       </div>

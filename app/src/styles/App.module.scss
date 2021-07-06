@@ -1,5 +1,99 @@
 .container {
   display: flex;
+  justify-content: center;
+  background-color: var(--main-bg);
+  height: 96vh;
+  margin-bottom: 4px;
+}
+
+
+.calculator {
+  flex: 1;
+  display: flex;
   flex-direction: column;
-  width: 70%;
+  justify-content: center;
+  
+  padding: 0px 16px;
+
+  @media only screen and (min-width: 768px) {
+    max-width: 768px;
+    padding: 0px;
+  }
+}
+
+.theme-0 {
+  --main-bg: hsl(222, 26%, 31%);
+  --navbar-text: hsl(0, 0%, 100%);
+
+  --value-text: hsl(0, 0%, 100%);
+  --value-bg: hsl(224, 36%, 15%);
+
+  --keys-bg: hsl(223, 31%, 20%);
+  
+  --btn-bg: hsl(30, 25%, 89%);
+  --btn-text: hsl(221, 14%, 31%);
+  --btn-shadow: hsl(28, 16%, 65%);
+
+  --btn-dark-bg: hsl(225, 21%, 49%);
+  --btn-dark-text: hsl(0, 0%, 100%);
+  --btn-dark-shadow: hsl(224, 28%, 35%);
+
+  --btn-submit-bg: hsl(6, 63%, 50%);
+  --btn-submit-text: hsl(0, 0%, 100%);
+  --btn-submit-shadow: hsl(6, 70%, 34%);
+
+  --toggle-dial: hsl(6, 63%, 50%);
+  --toggle-bg: hsl(223, 31%, 20%);
+}
+
+
+.theme-1 {
+  --main-bg: hsl(0, 0%, 90%);
+  --navbar-text: hsl(198, 20%, 13%);
+
+  --value-text: hsl(60, 10%, 19%);
+  --value-bg: hsl(0, 0%, 93%);
+  
+  --keys-bg: hsl(0, 5%, 81%);
+  
+  --btn-bg: hsl(45, 7%, 89%);
+  --btn-text: hsl(60, 10%, 19%);
+  --btn-shadow: hsl(35, 11%, 61%);
+
+  --btn-dark-bg: hsl(185, 42%, 37%);
+  --btn-dark-text: hsl(0, 0%, 100%);
+  --btn-dark-shadow: hsl(185, 58%, 25%);
+
+  --btn-submit-bg: hsl(25, 98%, 40%);
+  --btn-submit-text: hsl(0, 0%, 100%);
+  --btn-submit-shadow: hsl(25, 99%, 27%);
+  
+  --toggle-dial: hsl(25, 98%, 40%);
+  --toggle-bg: hsl(0, 5%, 81%);
+}
+
+
+.theme-2 {
+  --main-bg: hsl(268, 75%, 9%);
+  --navbar-text: hsl(52, 100%, 62%);
+
+  --value-text: hsl(52, 100%, 62%);
+  --value-bg: hsl(268, 71%, 12%);
+  
+  --keys-bg: hsl(268, 71%, 12%);
+  
+  --btn-bg: hsl(268, 47%, 21%);
+  --btn-text: hsl(52, 100%, 62%);
+  --btn-shadow: hsl(290, 70%, 36%);
+
+  --btn-dark-bg: hsl(281, 89%, 26%);
+  --btn-dark-text: hsl(0, 0%, 100%);
+  --btn-dark-shadow: hsl(290, 70%, 36%);
+
+  --btn-submit-bg: hsl(176, 100%, 44%);
+  --btn-submit-text: hsl(198, 20%, 13%);
+  --btn-submit-shadow: hsl(177, 92%, 70%);
+
+  --toggle-dial: hsl(176, 100%, 44%);
+  --toggle-bg: hsl(268, 71%, 12%);
 }

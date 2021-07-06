@@ -1,7 +1,7 @@
 import styles from '../styles/ValueDisplay.module.scss';
 
 export function ValueDisplay() {
-  const value = 399981;
+  const value = 36689.12;
 
   return (
     <div className={styles.container}>

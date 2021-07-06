@@ -1,9 +1,11 @@
 .container {
-  background-color: blue;
+  background-color: var(--value-bg);
   padding: 16px;
   border-radius: 8px;
   display: flex;
   justify-content: flex-end;
+
+  overflow: hidden;
 
   margin: 16px 0px;
 }
@@ -11,5 +13,5 @@
 .value {
   font-size: 32px;
   font-weight: 700;
-  color: white;
+  color: var(--value-text);
 }
