@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 8px 0px 8px;
+
+  &>label {
+    font-size: 0.5em;
+    font-weight: 700;  
+  }
+}
+
+.switch-container {
+  width: 3em;
+}
+
+.theme-selector-label {
+  display: flex;
+  align-items: flex-end;
+  font-size: 0.5em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-inline-end: 1em;
+}
+
+.switch {
+  background-color: red;
+  border-radius: 1em;
+  padding: 4px;
+}
+
+.dial {
+  content: '';
+  width: 0.7em;
+  height: 0.7em;
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  background-color: green;
+
+  transition: left 0.2s, transform 0.2s;
+
+  &.dial-0 {
+    left: 0;
+    transform: translateX(0);  
+  }
+
+  &.dial-1 {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.dial-2 {
+    left: 100%;
+    transform: translateX(-100%);
+  }
+}

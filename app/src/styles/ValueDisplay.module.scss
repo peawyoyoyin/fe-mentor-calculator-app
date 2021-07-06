@@ -1,0 +1,15 @@
+.container {
+  background-color: blue;
+  padding: 16px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: flex-end;
+
+  margin: 16px 0px;
+}
+
+.value {
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+}
