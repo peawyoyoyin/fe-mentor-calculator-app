@@ -7,14 +7,14 @@ import { useState } from 'react';
 
 function App() {
 	const { theme } = useTheme();
-	const [result, setResult] = useState('0')
+	const [display, setDisplay] = useState('0')
 
 	return (
 		<div className={`${styles.container} ${styles[`theme-${theme}`]}`}>
 			<div className={styles.calculator}>
 				<Navbar />
-				<ValueDisplay displayResult={result} />
-				<Buttons onSetResult={setResult} />
+				<ValueDisplay displayResult={display} />
+				<Buttons onSetDisplay={setDisplay} />
 			</div>
 		</div>
 	);
