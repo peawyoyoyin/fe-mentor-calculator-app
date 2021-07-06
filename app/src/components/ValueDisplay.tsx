@@ -11,6 +11,8 @@ export function ValueDisplay(props: IValueDisplayProps) {
 	return (
 		<div className={styles.container}>
 			<span className={styles.value}>
+
+				{/* TODO: more than 3 deci */}
 				{new Intl.NumberFormat('en-US').format(parseFloat(value))}
 			</span>
 		</div>

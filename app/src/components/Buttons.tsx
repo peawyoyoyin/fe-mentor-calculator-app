@@ -5,62 +5,97 @@ interface IButtonProps {
 }
 
 export function Buttons(props: IButtonProps) {
-	const [numStr, setNumStr] = useState('')
+	const [accResultStr, setAccResultStr] = useState('0')
+	const [secondNumStr, setSecondNumStr] = useState('0')
+	const [resetSecondNumStr, setResetSecondNumStr] = useState(false)
 	const [dupOp, setDupOp] = useState(false)
-	const [display, setDisplay] = useState(0)
+	const [display, setDisplay] = useState('0')
 	const [result, setResult] = useState(0)
+	const [lastOperator, setLastOperator] = useState('')
 
 	useEffect(() => {
 		props.onSetDisplay(display)
 	}, [display, props])
 
 	useEffect(() => {
-		setDisplay(result)
-	}, [result])
+		setDisplay(accResultStr)
+	}, [accResultStr])
+	useEffect(() => {
+		setDisplay(secondNumStr)
+	}, [secondNumStr])
 
-	const concatNum = (acc: string, input: string,) => {
-		setDisplay(parseFloat(input))
-		setNumStr(`${acc}${input}`);
+	const concatNum = (input: string) => {
+		resetSecondNumStr ? setSecondNumStr(`${input}`) : setSecondNumStr(`${secondNumStr}${input}`);
+
+		// debugger
+		setResetSecondNumStr(false)
 		setDupOp(false)
 	}
-	const calCulate = (acc: string, operator: string) => {
-		if (!dupOp) {
-			setResult(eval(acc));
-			setNumStr(`${numStr}${operator}`);
-			setDupOp(true)
+	const calculate = () => {
+		if (lastOperator !== '') {
+
+			// debugger
+			const cleanAccNumStr = parseFloat(accResultStr)
+			const cleanSecNumStr = parseFloat(secondNumStr)
+			const result = eval(`${cleanAccNumStr}${lastOperator}${cleanSecNumStr}`)
+			setAccResultStr(result)
+			// debugger
 		} else {
-			setNumStr(`${numStr.slice(0, -1)}${operator}`);
+			setAccResultStr(secondNumStr)
+			// debugger
 		}
+
+	}
+
+	const addOperator = (operator: string) => {
+		if (!dupOp) {
+			calculate()
+			setResetSecondNumStr(true)
+			setLastOperator(operator)
+			setDupOp(true)
+
+			// debugger
+		}
+
+		// debugger
+
+		// debugger
+	}
+
+	const onClickReset = () => {
+		setAccResultStr('0');
+		setSecondNumStr('0');
+		setLastOperator('')
 	}
 
 	return (
 		<div className={styles.container}>
 			<div className={styles['button-row']}>
-				<button onClick={() => concatNum(numStr, '7')}>7</button>
-				<button onClick={() => concatNum(numStr, '8')}>8</button>
-				<button onClick={() => concatNum(numStr, '9')}>9</button>
+				<button onClick={() => concatNum('7')}>7</button>
+				<button onClick={() => concatNum('8')}>8</button>
+				<button onClick={() => concatNum('9')}>9</button>
 				<button className={styles.dark}>DEL</button>
 			</div>
 			<div className={styles['button-row']}>
-				<button onClick={() => concatNum(numStr, '4')}>4</button>
-				<button onClick={() => concatNum(numStr, '5')}>5</button>
-				<button onClick={() => concatNum(numStr, '6')}>6</button>
-				<button onClick={() => calCulate(numStr, '+')} >+</button>
+				<button onClick={() => concatNum('4')}>4</button>
+				<button onClick={() => concatNum('5')}>5</button>
+				<button onClick={() => concatNum('6')}>6</button>
+				<button onClick={() => addOperator('+')} >+</button>
 			</div>
 			<div className={styles['button-row']}>
-				<button onClick={() => concatNum(numStr, '1')}>1</button>
-				<button onClick={() => concatNum(numStr, '2')}>2</button>
-				<button onClick={() => concatNum(numStr, '3')}>3</button>
-				<button onClick={() => calCulate(numStr, '-')}>-</button>
+				<button onClick={() => concatNum('1')}>1</button>
+				<button onClick={() => concatNum('2')}>2</button>
+				<button onClick={() => concatNum('3')}>3</button>
+				<button onClick={() => addOperator('-')}>-</button>
 			</div>
 			<div className={styles['button-row']}>
-				<button onClick={() => concatNum(numStr, '.')}>.</button>
-				<button onClick={() => concatNum(numStr, '0')}>0</button>
-				<button onClick={() => calCulate(numStr, '/')}>/</button>
-				<button onClick={() => calCulate(numStr, '*')}>x</button>
+				<button onClick={() => concatNum('.')}>.</button>
+				<button onClick={() => concatNum('0')}>0</button>
+				<button onClick={() => addOperator('/')}>/</button>
+				<button onClick={() => addOperator('*')}>x</button>
 			</div>
 			<div className={styles['button-row']}>
-				<button className={styles.dark} onClick={() => { setNumStr(''); setResult(0) }}>RESET</button>
+				<button className={styles.dark} onClick={() => onClickReset()}>RESET</button>
 				<button className={styles.submit}>=</button>
 			</div>
 		</div >
