@@ -1,0 +1,39 @@
+.labels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 8px 0px 8px;
+}
+
+.switch {
+  background-color: red;
+  border-radius: 1em;
+  padding: 4px;
+}
+
+.dial {
+  content: '';
+  width: 1em;
+  height: 1em;
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  background-color: green;
+
+  transition: left 0.2s, transform 0.2s;
+}
+
+.dial.dial-0 {
+  left: 0;
+  transform: translateX(0);
+}
+
+.dial.dial-1 {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dial.dial-2 {
+  left: 100%;
+  transform: translateX(-100%);
+}
+

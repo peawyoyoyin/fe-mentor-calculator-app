@@ -2,3 +2,7 @@
   font-family: 'Spartan';
   src: local('Spartan'), url(../fonts/spartan.ttf) format('truetype');
 }
+
+body {
+  font-family: Spartan;
+}
