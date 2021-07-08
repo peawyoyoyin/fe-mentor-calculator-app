@@ -1,13 +1,20 @@
 import styles from '../styles/ValueDisplay.module.scss';
+import { useEffect, useState } from 'react';
 
-export function ValueDisplay() {
-  const value = 36689.12;
+interface IValueDisplayProps {
+	displayResult: string
+}
 
-  return (
-    <div className={styles.container}>
-      <span className={styles.value}>
-        {new Intl.NumberFormat('en-US').format(value)}
-      </span>
-    </div>
-  )
+export function ValueDisplay(props: IValueDisplayProps) {
+	const [value, setValue] = useState(props.displayResult)
+	useEffect(() => { setValue(props.displayResult) }, [props.displayResult])
+	return (
+		<div className={styles.container}>
+			<span className={styles.value}>
+
+				{/* TODO: more than 3 deci */}
+				{new Intl.NumberFormat('en-US').format(parseFloat(value))}
+			</span>
+		</div>
+	)
 }
