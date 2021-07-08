@@ -27,22 +27,18 @@ export function Buttons(props: IButtonProps) {
 	const concatNum = (input: string) => {
 		resetSecondNumStr ? setSecondNumStr(`${input}`) : setSecondNumStr(`${secondNumStr}${input}`);
 
-		// debugger
 		setResetSecondNumStr(false)
 		setDupOp(false)
 	}
 	const calculate = () => {
 		if (lastOperator !== '') {
 
-			// debugger
 			const cleanAccNumStr = parseFloat(accResultStr)
 			const cleanSecNumStr = parseFloat(secondNumStr)
 			const result = eval(`${cleanAccNumStr}${lastOperator}${cleanSecNumStr}`)
 			setAccResultStr(result)
-			// debugger
 		} else {
 			setAccResultStr(secondNumStr)
-			// debugger
 		}
 
 	}
@@ -54,12 +50,9 @@ export function Buttons(props: IButtonProps) {
 			setLastOperator(operator)
 			setDupOp(true)
 
-			// debugger
 		}
 
-		// debugger
 
-		// debugger
 	}
 
 	const onClickReset = () => {
